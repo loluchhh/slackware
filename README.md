@@ -78,7 +78,12 @@ ping slackware.com
 
 ## 2. Настройка системы после установки
 
-### 2.1 Подключение к интернету
+### Настраиваем внешний вид BASH
+```bash
+echo "export PS1='\[\e[1;33m\]\u \[\e[1;31m\]| \[\e[1;37m\]\w \[\e[1;31m\]> \[\e[0m\]'" >> ~/.bashrc
+```
+
+### Подключение к интернету
 
 ```bash
 # Определяем имя интерфейса (обычно wlan0)
@@ -94,26 +99,31 @@ wpa_supplicant -B -i wlan0 -c /etc/wpa_supplicant.conf
 dhcpcd wlan0
 ```
 
-### 2.2 Настройка зеркала
+### Настройка зеркала
 
 ```bash
 # Раскомментировать нужное зеркало
 nano /etc/slackpkg/mirrors
 ```
 
-### 2.3 Доустановить то, что надо, но чего не было в tagfile's
+### Установка slackpkg+
+https://slakfinder.org/slackpkg+.html
+
+### Установка sbopkg
+
+### Доустановить то, что надо, но чего не было в tagfile's
 ```bash
 slackpkg install dav1d, gcc-rust, libdeflate, libdisplay-info, lua, nghttp3, ngtcp2, pkgconf, seatd, wireplumber, wlroots, libxcvt, libei, libdecor
 ```
 
-### 2.4 Блокировка пакетов ядра
+### Блокировка пакетов ядра
 
 ```bash
 nano /etc/slackpkg/blacklist
 # Раскомментировать пакеты ядра
 ```
 
-### 2.5 Обновление системы
+### Обновление системы
 
 Документация: [slackpkg](https://docs.slackware.com/slackware:slackpkg) · [systemupgrade](https://docs.slackware.com/howtos:slackware_admin:systemupgrade)
 
