@@ -1,0 +1,205 @@
+* {
+  all: unset;
+}
+
+
+.cpu-section {
+  font-family: "JetBrains Mono Nerd Font";
+  background-color: #2b3866;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 10px;
+  padding-right: 10px;
+}
+.cpu-usage-section {
+  font-family: "JetBrains Mono Nerd Font";
+}
+.cpu-icon {
+  font-family: "JetBrains Mono Nerd Font";
+  font-size: 18px;
+  color: green;
+}
+.cpu-usage-value {
+  color: black;
+}
+
+
+.clock {
+  background-color: #2b3866;
+  font-family: "JetBrains Mono Nerd Font";
+  border-top-left-radius: 10px;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 10px;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.clock-date {
+  font-family: "JetBrains Mono Nerd Font", monospace;
+  font-size: 14px;
+  color: #c9c2c1;
+}
+.clock-time {
+  font-family: "JetBrains Mono Nerd Font", monospace;
+  font-size: 20px;
+  font-weight: 900;
+  color: #c9c2c1;
+}
+
+
+.slackware-logo {
+  background-color: #2b3866;
+  font-family: "JetBrains Mono Nerd Font", monospace;
+  font-size: 35px;
+  color: #c9c2c1;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 10px;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 12px;
+  padding-right: 5px;
+}
+
+
+.alienware-power-button {
+  /*background-color: #2a0d38;*/
+  background-color: #110321;
+  font-family: "JetBrains Mono Nerd Font";
+  font-size: 35px;
+  /*color: #0b4713;*/
+  color: #316917;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 10px;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 15px;
+  padding-right: 0;
+}
+
+
+.battery {
+  background-color: #e8ede9;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 10px;
+}
+.battery-discharging-icon {
+  font-family: "JetBrains Mono Nerd Font";
+  font-size: 25px;
+  color: #0b4713;
+}
+.battery-charging-icon {
+  font-family: "JetBrains Mono Nerd Font";
+  font-size: 30px;
+  color: black;
+}
+.battery-value {
+  font-family: "JetBrains Mono Nerd Font";
+  font-size: 16px;
+  color: black;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+
+.volume {
+  background-color: #c9c2c1;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 10px;
+}
+.volume-icon {
+  font-family: "JetBrains Mono Nerd Font";
+  font-size: 30px;
+  color: #e38819;
+}
+.volume-value {
+  font-family: "JetBrains Mono Nerd Font";
+  font-size: 16px;
+  color: black;
+}
+
+
+.brightness {
+  background-color: #d4cfc9;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 10px;
+}
+.brightness-icon {
+  font-family: "JetBrains Mono Nerd Font";
+  font-size: 30px;
+  color: yellow;
+}
+.brightness-value {
+  font-family: "JetBrains Mono Nerd Font";
+  font-size: 16px;
+  color: black;
+}
+
+.ws-btn {
+  font-size: 10px;
+  color: #6c7086;
+  padding: 0 3px;
+}
+
+.ws-btn.true {
+  color: #cdd6f4;
+}
+
+
+.icon {
+  font-family: "JetBrains Mono Nerd Font", monospace;
+  font-size: 18px;
+}
+
+.value {
+  font-family: "JetBrains Mono Nerd Font", monospace;
+  font-size: 13px;
+}
+
+.power-menu {
+  /*background-color: #1e1e2e;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 4px;*/
+  padding: 0 12px;
+}
+.poweroff-section {
+  background-color: #1e1e2e;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 4px;
+  padding-left: 32px;
+  padding-right: 38px;
+}
+.poweroff-button {
+  color: #821510;
+  font-size: 50px;
+}
+.reboot-section {
+  background-color: #1e1e2e;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 4px;
+  padding-left: 32px;
+  padding-right: 38px;
+}
+.reboot-button {
+  font-size: 50px;
+}

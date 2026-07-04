@@ -1,0 +1,129 @@
+; VARIABLES SECTION
+(defpoll time :interval "1s" "date +'%H:%M:%S'")
+(defpoll date :interval "60s" "date +'%Y.%m.%d %A'")
+(deflisten brightness "~/.config/eww/scripts/brightness-status.sh")
+(deflisten volume "~/.config/eww/scripts/volume-status.sh")
+(defpoll battery :interval "30s" "cat /sys/class/power_supply/BAT0/capacity")
+(defpoll battery-status :interval "30s" "cat /sys/class/power_supply/BAT0/status")
+(deflisten cpu-usage-persent "~/.config/eww/scripts/cpu-usage.sh")
+
+; BAR SECTION
+(defwindow bar
+  :monitor 0
+  :geometry (geometry :x "0"
+                      :y "7.5px"
+                      :width "99.25%"
+                      ;:height "30px"
+                      :anchor "top center")
+  :stacking "fg"
+  :exclusive true
+  :wm-ignore false
+  (bar))
+
+(defwidget bar []
+  (box :class "bar"
+       :orientation "h"
+    (box :hexpand true
+         :halign "start"
+         :spacing 12
+      (label :class "slackware-logo"
+             :text "  ")
+      (cpu-usage))
+    (clock)
+    (box :hexpand true
+         :halign "end"
+         :spacing 12
+      (brightness-widget)
+      (volume-widget)
+      (battery-widget)
+      (button :class "alienware-power-button"
+              :onclick "eww open --toggle power-menu" " "))))
+
+(defwidget cpu-usage []
+  (box :class "cpu-section"
+       :orientation "v"
+    (box :class "cpu-usage-section"
+         :orientation "h"
+      (label :class "cpu-icon" 
+             :text "")
+      (label :class "cpu-usage-value" 
+             :text cpu-usage-persent))
+    (box :class "cpu-fan-section"
+         :orientation "h"
+      (label :class "cpu-fan-icon"
+             :text "")
+      (label :class "cpu-fan-speed"
+             :text "1"))))
+
+
+(defwidget clock []
+  (box :class "clock"
+       :orientation "v"
+       :halign "center"
+       :valign "center"
+       :spacing 0
+    (label :class "clock-date" :text date)
+    (label :class "clock-time" :text time)))
+
+(defwidget brightness-widget []
+  (eventbox :onscroll "~/.config/eww/scripts/brightness.sh {}"
+    (box :class "brightness"
+         :orientation "h"
+         :spacing 4
+      (label :class "brightness-icon" :text "󰖨")
+      (label :class "brightness-value" :text "${brightness}%"))))
+
+(defwidget volume-widget []
+  (eventbox :onscroll "~/.config/eww/scripts/volume.sh {}"
+    (box :class "volume"
+         :orientation "h"
+         :spacing 4
+      (label :class "volume-icon" :text "󰓀")
+      (label :class "volume-value" :text "${volume}%"))))
+
+(defwidget battery-widget []
+  (box :class "battery"
+       :orientation "h"
+       :spacing 4
+    (label :class "battery-${battery-status == "Charging" ? "charging" :  "discharging"}-icon"
+           :text {battery-status == "Charging" ? "" :
+                  battery > 80 ? "󰁹" :
+                  battery > 60 ? "󰂀" :
+                  battery > 40 ? "󰁾" :
+                  battery > 20 ? "󰁼" : "󰁺"})
+    (label :class "battery-value" :text "${battery}%")))
+
+
+; POWER MENU SECTION
+(defwindow power-menu
+  :monitor 0
+  :geometry (geometry :x "0"
+                      :y "0"
+                      :width "250px"
+                      :height "75px"
+                      :anchor "center")
+  :stacking "fg"
+  :windowtype "normal"
+  (power-menu))
+
+(defwidget power-menu []
+  (box :class "power-menu"
+       :orientation "h"
+    (box :hexpand true
+         :halign "start"
+      (poweroff))
+    (box :hexpand true
+         :halign "end"
+      (reboot))))
+
+(defwidget poweroff []
+  (eventbox :onclick "sudo poweroff"
+    (box :class "poweroff-section"
+      (label :class "poweroff-button"
+             :text "󰤆"))))
+
+(defwidget reboot []
+  (eventbox :onclick "sudo reboot"
+    (box :class "reboot-section"
+      (label :class "reboot-button"
+             :text ""))))
